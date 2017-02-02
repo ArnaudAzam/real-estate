@@ -17,23 +17,37 @@ app.get( '/', function ( req, res ) {
 app.post('/check', function(req, res) {
     lbc.getData(req.body.lbcurl, function(lbcdata){
         ma.getData(lbcdata, function(lbcdata, madata){
-           console.log(madata);
            console.log(lbcdata);
-           if (lbcdata.typeBien == "maison"){
+           console.log(madata);
+           if (lbcdata.typeBien == "maison")
+           {
                 if(lbcdata.pricem < madata.prixMaisonLow)
-                    res.send("Bonne Affaire!!");
+                    res.render( 'result', { result: 'Bonne Affaire!!', ville: lbcdata.city, typebien: lbcdata.typeBien,
+                        prixbas: madata.prixMaisonLow,prixmoyen: madata.prixMaisonMed, prixhaut: madata.prixMaisonHigh,
+                        prixm2: lbcdata.pricem });
                 if(lbcdata.pricem > madata.prixMaisonHigh)
-                    res.send("Arnaque!!");
+                    res.render( 'result', { result: 'Arnaque!!', ville: lbcdata.city, typebien: lbcdata.typeBien,
+                        prixbas: madata.prixMaisonLow, prixmoyen: madata.prixMaisonMed, prixhaut: madata.prixMaisonHigh,
+                        prixm2: lbcdata.pricem });
                 else
-                    res.send("OK!!");
-           }
-           if (lbcdata.typeBien == "appartement"){
-                if(lbcdata.pricem < madata.prixAppartLow)
-                    res.send("Bonne Affaire!!");
-                if(lbcdata.pricem > madata.prixAppartHigh)
-                    res.send("Arnaque!!");
+                    res.render( 'result', { result: 'Annonce Ok!!', ville: lbcdata.city, typebien: lbcdata.typeBien,
+                        prixbas: madata.prixMaisonLow, prixmoyen: madata.prixMaisonMed, prixhaut: madata.prixMaisonHigh,
+                        prixm2: lbcdata.pricem });
+           } 
+           else if (lbcdata.typeBien == "appartement")
+           {
+                if(lbcdata.pricem < madata.prixApartLow)
+                    res.render( 'result', { result: 'Bonne Affaire!!', ville: lbcdata.city, typebien: lbcdata.typeBien,
+                        prixbas: madata.prixApartLow,prixmoyen: madata.prixApartMed, prixhaut: madata.prixApartHigh,
+                        prixm2: lbcdata.pricem });
+                if(lbcdata.pricem > madata.prixApartHigh)
+                    res.render( 'result', { result: 'Arnaque!!', ville: lbcdata.city, typebien: lbcdata.typeBien,
+                        prixbas: madata.prixApartLow, prixmoyen: madata.prixApartMed, prixhaut: madata.prixApartHigh,
+                        prixm2: lbcdata.pricem });
                 else
-                    res.send("OK!!");
+                    res.render( 'result', { result: 'Annonce Ok!!', ville: lbcdata.city, typebien: lbcdata.typeBien,
+                        prixbas: madata.prixApartLow, prixmoyen: madata.prixApartMed, prixhaut: madata.prixApartHigh,
+                        prixm2: lbcdata.pricem });
            }
            //if location...
         });

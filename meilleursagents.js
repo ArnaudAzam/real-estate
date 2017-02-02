@@ -4,7 +4,13 @@ var cheerio = require( 'cheerio' );
 module.exports = {
 	getData: function(lbcdata, callback)
 	{
-		var url = "https://www.meilleursagents.com/prix-immobilier/"+ lbcdata.city;
+		var cpRegex = /([0-9]+)/g;
+		var cp = lbcdata.city.match(cpRegex);
+
+		if (~~(cp /1000) == 75)
+			var url = "https://www.meilleursagents.com/prix-immobilier/paris-"+	cp % 75000 +"eme-arrondissement-" + cp;
+		else
+			var url = "https://www.meilleursagents.com/prix-immobilier/"+ lbcdata.city;
 		console.log(url);
 		request( url, function ( error, response, html){
             if ( !error && response.statusCode == 200 ){ // code status 200 = ok status = 404 505 etc error
