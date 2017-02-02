@@ -10,10 +10,14 @@
     <p>Welcome to
         <%= message %>
     </p>
-    <p>
-        Lien LeBonCoin: <input type="url"/>
-    </p>
-    <p><button id="poke">Send !</button></p>
+    <form action="/check" method="post">
+    	<p>
+        Lien LeBonCoin: <input name="lbcurl" type="url"/>
+    	</p>
+    	<p><button id="poke">Send !</button></p>
+    </form>
+    
+    
 </body>
 
 </html>
