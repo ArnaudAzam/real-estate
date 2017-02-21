@@ -1,23 +1,130 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 
 <head>
-    <title>Home</title>
-    <link rel="stylesheet" href="/assets/css/style.css" />
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Le Bon Pigeon - Comparateur et flaireur de bonnes affaires</title>
+
+ 	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- Theme CSS -->
+    <link href="assets/css/creative.min.css" rel="stylesheet">
+
 </head>
 
-<body>
-    <p>Welcome to
-        <%= message %>
-    </p>
-    <form action="/check" method="post">
-    	<p>
-        Lien LeBonCoin: <input name="lbcurl" type="url"/>
-    	</p>
-    	<p><button id="poke">Send !</button></p>
-    </form>
-    
-    
+<body id="page-top">
+
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Le Bon Pigeon.com</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a class="page-scroll" href="#crawl">Crawler</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <header>
+        <div class="header-content">
+            <div class="header-content-inner">
+                <h1 id="homeHeading">V&eacute;rifiez une annonce Le Bon Coin!</h1>
+                <hr>
+                <form action="/check" method="post">
+  					<div class="form-group">
+  				    	<input type="url" class="form-control" name="lbcurl" placeholder="Entrer un lien vers l'annonce ">
+  					</div>
+  					<button type="submit" class="btn btn-primary btn-xl page-scroll">Valider</button>
+  				</form>	  
+            </div>
+
+        </div>
+    </header>
+    <section class="bg-primary" id="crawl">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h1 class="section-heading">Explorer les offres immo du bon coin!</h1>
+                    <hr class="light">
+                    <form action="/crawl" method="post">
+  						<div class="form-group">
+  							<input type="string" class="form-control col-lg-3 col-md-6" name="ville" placeholder="Ville">
+  				    		<input type="number" class="form-control col-lg-3 col-md-6" name="cp" placeholder="Code Postal">
+  						</div>
+  						<button type="submit" class="page-scroll btn btn-default btn-xl sr-button">Valider</button>
+  					</form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 text-center">
+                	<h1>Facile!</h1>
+                	<hr class="light">
+	                <div class="card" style="color:black;">
+	  					<ul class="list-group list-group-flush">
+	    					<li class="list-group-item text-left bg-primary">Entrez un code postal &nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;.&nbsp;.</li>
+	    					<li class="list-group-item text-right bg-primary">.&nbsp;.&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Validez&nbsp;</li>
+						    <li class="list-group-item bg-primary">Et detendez vous</li>
+						 </ul>
+					</div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <h1>Rapide!</h1>
+                    <hr class="light">
+					<div class="card" style="color:black;">
+  						<ul class="list-group list-group-flush">
+    						<li class="list-group-item text-left bg-primary">Des centaines d'offres&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;.&nbsp;.</li>
+    						<li class="list-group-item text-right bg-primary">.&nbsp;.&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;En un clic&nbsp;</li>
+					    	<li class="list-group-item bg-primary">Meme quand vous etes au toilettes</li>
+					 	</ul>
+					</div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+					<h1>Efficace!</h1>
+                    <hr class="light">
+					<div class="card" style="color:black;">
+  						<ul class="list-group list-group-flush">
+    						<li class="list-group-item text-left bg-primary">Nous evaluons les offres&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;.&nbsp;.</li>
+    						<li class="list-group-item text-right bg-primary">.&nbsp;.&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;avec des algo ML de pointe</li>
+					    	<li class="list-group-item bg-primary">pour ne vous donnez le meilleur</li>
+					 	</ul>
+					</div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+					<h1>Gratuit!</h1>
+                    <hr class="light">
+					<div class="card" style="color:black;">
+  						<ul class="list-group list-group-flush">
+    						<li class="list-group-item text-left bg-primary">Mais si c'est possible&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;.&nbsp;.</li>
+    						<li class="list-group-item text-right bg-primary">.&nbsp;.&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;avec la carte kiwi</li>
+					    	<li class="list-group-item bg-primary">Donate <3</li>
+					 	</ul>
+					</div>
+                </div>
+        	</div>
+    </section>
+    <!-- Theme JavaScript -->
+    <script src="assets/js/creative.min.js"></script>
+
 </body>
 
 </html>

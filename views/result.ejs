@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Le Bon Pigeon - Comparateur et flaireur de bonnes affaires</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- Theme CSS -->
+    <link href="assets/css/creative.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top" style="color:black;background-color: rgba(0, 0, 0, 1);">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="/">Le Bon Pigeon.com</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a class="page-scroll" href="/#crawl">Crawler</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <header style="background-image: url('<%= images %>');">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <hr class="primary">
+                    <hr class="primary">
+                    <h2 class="section-heading" style="color:black;">R&eacute;sultats de la recherche</h2>
+                    <hr class="primary">
+                    <table class="table" style="color:black;background-color: rgba(255, 255, 255, 0.7);">
+                      <thead>
+                        <tr>
+                          <th class="text-center">Infos Le Bon coin</th>
+                          <th class="text-center">Prix Meilleurs agents</th>
+                          <th class="text-center">Score</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Prix: <%= prixtotal %>&euro;</td>
+                          <td rowspan = "2" style="vertical-align:middle;">Prix minimal : <%= prixmin %>&euro;</td>
+                          <td>score = (prix m2 / prix[min, med, max]) * 100</td>
+                        </tr>
+                        <tr>
+                          <td>Ville: <%= city %></td>
+                          <% if(scoremed > 100) {%>
+                            <td rowspan = "3" style="vertical-align:middle;font-size:250%;color:red"><%= scoremed %> / 100</td>
+                          <%}else{%>
+                            <td rowspan = "3" style="vertical-align:middle;font-size: 250%;color:green"><%= scoremed %> / 100</td>
+                            <%}%>
+                        </tr>
+                        <tr>
+                          <td>Type de Bien: <%= typebien %></td>
+                          <td rowspan = "2" style="vertical-align:middle;">Prix moyen : <%= prixmed %>&euro;</td>
+                        </tr>
+                        <tr>
+                          <td>Surface: <%= surface %>m2</td>
+                        </tr>
+                        <tr>
+                          <td>Nombre de pieces: <%= pieces %></td>
+                          <td rowspan = "2" style="vertical-align:middle;">Prix maximal : <%= prixmax %>&euro;</td>
+                          <td><%= scorelow %>% du prix min</td>
+                        </tr>
+                        <tr>
+                          <td>Prix au m2: <%= prixm2 %>&euro;</td>
+                          <td><%= scorehigh %>% du prix max</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </header>
+    <!-- Theme JavaScript -->
+    <script src="assets/js/creative.min.js"></script>
+
+</body>
+
+</html>
